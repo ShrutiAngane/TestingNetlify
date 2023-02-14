@@ -7,7 +7,8 @@ function App() {
     let body=[]
     async function fetchData(){
       const response=await fetch('/.netlify/functions/GetLanguage')
-      body=response.data.languages
+      const formattedResponse=await response.json()
+      body=formattedResponse.data.languages
       for (let i=0;i<body.length;i++) {
           let li = document.createElement("li");
           li.innerText = body[i].name;

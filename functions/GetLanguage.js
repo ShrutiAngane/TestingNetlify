@@ -12,7 +12,7 @@ exports.handler= async function(event,callback){
         const data=await response.json()
         return{
             statusCode:200,
-            body:data
+            body:JSON.stringify(data)
         }
       }catch(error){
         const { status, statusText, headers, data } = error.response
