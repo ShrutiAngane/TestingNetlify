@@ -9,7 +9,7 @@ function App() {
       method: 'GET',
       headers: {
         'Accept-Encoding': 'application/gzip',
-        'X-RapidAPI-Key': '83570e0c38mshe677cb2814bdd31p1700c7jsn3be794f96e9f',
+        'X-RapidAPI-Key': process.env.REACT_APP_TESTING_API,
         'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
       }
     };
@@ -18,7 +18,6 @@ function App() {
       .then(response => response.json())
       .then(response => {
         body=response.data.languages
-        console.log(body[0])
         for (let i=0;i<body.length;i++) {
           let li = document.createElement("li");
           li.innerText = body[i].name;
