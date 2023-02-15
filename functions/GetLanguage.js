@@ -1,3 +1,4 @@
+const axios = require('axios')
 exports.handler= async function(event,callback){
     const options = {
         method: 'GET',
@@ -8,8 +9,7 @@ exports.handler= async function(event,callback){
         }
       }
       try{
-        const response=await fetch('https://google-translate1.p.rapidapi.com/language/translate/v2/languages?target=en', options);
-        const data=await response.json()
+        const {data}=await axios.get('https://google-translate1.p.rapidapi.com/language/translate/v2/languages?target=en', options);
         return{
             statusCode:200,
             body:JSON.stringify(data)
@@ -18,7 +18,7 @@ exports.handler= async function(event,callback){
         // const { status, statusText, headers, data } = error.response
         return {
         statusCode: 404,
-        body: JSON.stringify({message:error})
+        body: JSON.stringify({message:'error has been occured!'})
         }
       }
 

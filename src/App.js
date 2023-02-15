@@ -6,9 +6,9 @@ function App() {
     let unordered=document.getElementById('language')
     let body=[]
     async function fetchData(){
-      const response=await fetch('/.netlify/functions/GetLanguage')
-      const formattedResponse=await response.json()
-      body=formattedResponse.data.languages
+      const formattedResponse=await fetch('/.netlify/functions/GetLanguage')
+      const formatted=await formattedResponse.json()
+      body=formatted.data.languages
       for (let i=0;i<body.length;i++) {
           let li = document.createElement("li");
           li.innerText = body[i].name;
