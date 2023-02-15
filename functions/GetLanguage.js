@@ -15,10 +15,10 @@ exports.handler= async function(event,callback){
             body:JSON.stringify(data)
         }
       }catch(error){
-        const { status, statusText, headers, data } = error.response
+        // const { status, statusText, headers, data } = error.response
         return {
-        statusCode: status,
-        body: JSON.stringify({status, statusText, headers, data})
+        statusCode: 404,
+        body: JSON.stringify({message:error})
         }
       }
 
